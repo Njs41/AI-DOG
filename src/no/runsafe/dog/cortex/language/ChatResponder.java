@@ -132,14 +132,10 @@ public class ChatResponder extends Worker<String, ChatResponder.ChannelMessage> 
 		if (ruleCooldown > 0)
 		{
 			debugger.debugFine("Putting rule on cooldown");
-			Runnable callback = new Runnable()
+			Runnable callback = () ->
 			{
-				@Override
-				public void run()
-				{
-					if (!activeTriggers.contains(rule))
-						activeTriggers.add(rule);
-				}
+				if (!activeTriggers.contains(rule))
+					activeTriggers.add(rule);
 			};
 			activeTriggers.remove(rule);
 			scheduler.createAsyncTimer(callback, ruleCooldown);

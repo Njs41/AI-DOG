@@ -33,14 +33,7 @@ public class PlayerLogin implements IPlayerPreLoginEvent, IPlayerJoinEvent
 	{
 		final String playerName = event.getPlayer().getName();
 		if (this.playersToWelcome.contains(playerName))
-			this.scheduler.startSyncTask(new Runnable()
-			{
-				@Override
-				public void run()
-				{
-					welcomePlayer(playerName);
-				}
-			}, 2);
+			this.scheduler.startSyncTask(() -> welcomePlayer(playerName), 2);
 	}
 
 	private void welcomePlayer(String playerName)
