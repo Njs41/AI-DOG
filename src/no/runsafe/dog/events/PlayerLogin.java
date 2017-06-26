@@ -25,24 +25,24 @@ public class PlayerLogin implements IPlayerPreLoginEvent, IPlayerJoinEvent
 		IPlayer player = event.getPlayer();
 
 		if (player.isNew())
-			this.playersToWelcome.add(player.getName());
+			this.playersToWelcome.add(player);
 	}
 
 	@Override
 	public void OnPlayerJoinEvent(RunsafePlayerJoinEvent event)
 	{
-		final String playerName = event.getPlayer().getName();
-		if (this.playersToWelcome.contains(playerName))
-			this.scheduler.startSyncTask(() -> welcomePlayer(playerName), 2);
+		final IPlayer player = event.getPlayer();
+		if (this.playersToWelcome.contains(player))
+			this.scheduler.startSyncTask(() -> welcomePlayer(player), 2);
 	}
 
-	private void welcomePlayer(String playerName)
+	private void welcomePlayer(IPlayer player)
 	{
-		this.speechCenter.Speak(String.format("Welcome to the server, %s.", playerName));
-		this.playersToWelcome.remove(playerName);
+		this.speechCenter.Speak(String.format("Welcome to the server, %s.", player.getPrettyName()));
+		this.playersToWelcome.remove(player);
 	}
 
 	private final Speech speechCenter;
-	private final List<String> playersToWelcome = new ArrayList<>();
+	private final List<IPlayer> playersToWelcome = new ArrayList<>();
 	private final IScheduler scheduler;
 }
