@@ -45,7 +45,7 @@ public class Insult extends ChatResponderRule implements IConfigurationChanged
 	{
 		this.insultTiers.clear();
 
-		List<String> sortOrder = new ArrayList<String>();
+		List<String> sortOrder = new ArrayList<>();
 		Map<String, List<String>> insults = configuration.getConfigSectionsAsList("insults");
 
 		sortOrder.addAll(insults.keySet());
@@ -65,7 +65,7 @@ public class Insult extends ChatResponderRule implements IConfigurationChanged
 		return insult.toString().trim();
 	}
 
-	private final List<List<String>> insultTiers = new ArrayList<List<String>>();
+	private final List<List<String>> insultTiers = new ArrayList<>();
 	private final Random random = new Random();
-	private final HashMap<String, Integer> playerHits = new HashMap<String, Integer>();
+	private final HashMap<String, Integer> playerHits = new HashMap<>();
 }

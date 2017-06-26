@@ -154,12 +154,12 @@ public class ChatResponder extends Worker<String, ChatResponder.ChannelMessage> 
 
 	private final IScheduler scheduler;
 	private final ChatTriggerRepository chatTriggerRepository;
-	private final ConcurrentHashMap<String, Long> playerCooldowns = new ConcurrentHashMap<String, Long>();
-	private final ArrayList<IChatResponseTrigger> activeTriggers = new ArrayList<IChatResponseTrigger>();
+	private final ConcurrentHashMap<String, Long> playerCooldowns = new ConcurrentHashMap<>();
+	private final ArrayList<IChatResponseTrigger> activeTriggers = new ArrayList<>();
 	private final Speech speech;
 	private final IDebug debugger;
 	private final IConsole console;
-	private final List<IChatResponseTrigger> staticResponders = new ArrayList<IChatResponseTrigger>();
+	private final List<IChatResponseTrigger> staticResponders = new ArrayList<>();
 	private final IChannelManager manager;
 	private int ruleCooldown;
 	private int playerCooldown;

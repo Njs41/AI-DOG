@@ -45,7 +45,7 @@ public class Compliment extends ChatResponderRule implements IConfigurationChang
 	{
 		this.complimentTiers.clear();
 
-		List<String> sortOrder = new ArrayList<String>();
+		List<String> sortOrder = new ArrayList<>();
 		Map<String, List<String>> compliments = configuration.getConfigSectionsAsList("compliments");
 
 		sortOrder.addAll(compliments.keySet());
@@ -65,7 +65,7 @@ public class Compliment extends ChatResponderRule implements IConfigurationChang
 		return insult.toString().trim();
 	}
 
-	private final List<List<String>> complimentTiers = new ArrayList<List<String>>();
+	private final List<List<String>> complimentTiers = new ArrayList<>();
 	private final Random random = new Random();
-	private final HashMap<String, Integer> playerHits = new HashMap<String, Integer>();
+	private final HashMap<String, Integer> playerHits = new HashMap<>();
 }

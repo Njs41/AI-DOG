@@ -50,6 +50,6 @@ public class PlayerLogin implements IPlayerPreLoginEvent, IPlayerJoinEvent
 	}
 
 	private final Speech speechCenter;
-	private final List<String> playersToWelcome = new ArrayList<String>();
+	private final List<String> playersToWelcome = new ArrayList<>();
 	private final IScheduler scheduler;
 }
