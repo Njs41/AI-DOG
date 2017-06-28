@@ -17,7 +17,7 @@ public class SpeakCommand extends ExecutableCommand
 	@Override
 	public String OnExecute(ICommandExecutor executor, IArgumentList parameters)
 	{
-		speech.Speak(parameters.get("message"));
+		speech.Speak(parameters.getValue("message"));
 		return "DOG has been commanded. Please use AI puppeteering sparingly.";
 	}
 
